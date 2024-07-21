@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SIRI CASCUDO - Faça seu pedido</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<link href="https://fonts.cdnfonts.com/css/zapfhumnst-bt" rel="stylesheet">
+
+    <style>
+		
+		@import url('https://fonts.cdnfonts.com/css/zapfhumnst-bt');
+
+
+        .logo-container {
+			display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 5px;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            
+             margin-left: auto;
+        }
+
+        .empty-container {
+            flex-grow: 1;
+        }
+
+        .menu-container {
+            flex: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 10px; 
+			flex-wrap: wrap; 
+        }
+
+        ul li {
+            background-color: white;
+        }
+
+        ul li a {
+			font-family: 'ZapfHumnst BT', sans-serif;
+			font-weight: bold;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            color: black;
+        }
+
+        .logo img {
+            width: 100px; /* Ajuste conforme necessário */
+            height: auto; /* Mantém a proporção da imagem */
+			margin-right: 60px;
+        }
+		
+		.cardapio-container {
+            max-width: 750px;
+            margin: 2px auto 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			align-items: center;
+			display: flex;
+			
+			justify-content: center;
+			position: relative;
+			z-index: 1;
+		 
+		 }
+		.square-container img {
+            width: 430px;
+            height: auto;
+			align-items: center;
+			 justify-content: center;
+		  }
+		  
+		
+		.background-section {
+            background-image: url('imagens/fundo_cardapio.jpeg'); /* ver caminho */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 850px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+			position: relative;
+			z-index: 1;
+        }
+		
+		  footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family: 'ZapfHumnst BT', sans-serif; 
+            font-weight: bold; 
+            color: black; 
+			z-index: 1
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px; 
+        }
+
+         .produto-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .produto {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .produto:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .produto img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .produto h1 {
+            font-size: 18px;
+            margin: 10px 0;
+            font-family: 'ZapfHumnst BT', sans-serif;
+            color: #333;
+        }
+
+        .produto p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .produto h2 {
+            font-size: 20px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .produto form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .produto input[type="text"] {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .produto input[type="button"] {
+            border: none;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .produto input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        .produto input[type="submit"] {
+            border: none;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .produto input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                height: 400px;
+            }
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+            ul {
+                justify-content: center;
+            }
+            .menu-container {
+                flex: none;
+            }
+			.square-container img {
+                width: 100%;
+                max-width: 300px; 
+            }
+            .background-section {
+                height: auto;
+                padding: 20px; 
+            }
+			
+			.logo img {
+                margin-right: 0; 
+				
+            }
+			
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="logo">
+            <img src="imagens/logo_pequeno_semfundo.png" alt="Logo">
+        </div>
+        <div class="menu-container">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="cardapio.html">CARDÁPIO</a></li>
+                <li><a class="active" href="pedido.html">FAÇA SEU PEDIDO</a></li>  
+                <li><a class="active" href="atendimento.html">ATENDIMENTO</a></li>         
+                <li><a class="active" href="home.html">SOBRE</a></li>			
+            </ul>
+        </div>
+    </div>
+
+    <div class="background-section">
+        <div class="cardapio-container">
+             <div class="produto-container">
+        <div class="produto">
+            <img src="imagens/hamburguer_siri.jpeg" alt="Rum Malibu">
+            <h1>SIRI JR.</h1>
+            <p>Hambúrguer pequeno com fritas</p>
+            <h2>R$35,90</h2>
+            <form action="" method="post">
+                <input type="text" name="quantidade" id="quantidade2" value="0" readonly="readonly" />
+                <input type="button" value="+" onclick="mais('quantidade2')">
+                <input type="button" value="-" onclick="menos('quantidade2')">
+                <input type="submit" value="Adicionar">
+            </form>
+        </div>
+        <div class="produto">
+            <img src="imagens/hamburguer_siri_2.jpeg" alt="Vodka Absolut">
+            <h1>SIRI DELUXE</h1>
+            <p>Hambúrguer grande com fritas </p>
+            <h2>R$45,90</h2>
+            <form action="" method="post">
+                <input type="text" name="quantidade" id="quantidade3" value="0" readonly="readonly" />
+                <input type="button" value="+" onclick="mais('quantidade3')">
+                <input type="button" value="-" onclick="menos('quantidade3')">
+                <input type="submit" value="Adicionar">
+            </form>
+        </div>
+        <div class="produto">
+            <img src="imagens/peixe_fritas.jpeg" alt="Vinho Santa Helena">
+            <h1>FRITAS DA PÉROLA</h1>
+            <p>Tiras de peixe frito com fritas</p>
+            <h2>R$37,90</h2>
+            <form action="" method="post">
+                <input type="text" name="quantidade" id="quantidade4" value="0" readonly="readonly" />
+                <input type="button" value="+" onclick="mais('quantidade4')">
+                <input type="button" value="-" onclick="menos('quantidade4')">
+                <input type="submit" value="Adicionar">
+            </form>
+        </div>
+        <div class="produto">
+            <img src="imagens/peixe_fritas_3.jpeg" alt="Cerveja Alemã">
+            <h1>COMBO SRA. PUFF</h1>
+            <p>Peixe inteiro frito com fritas</p>
+            <h2>R$79,90</h2>
+            <form action="" method="post">
+                <input type="text" name="quantidade" id="quantidade5" value="0" readonly="readonly" />
+                <input type="button" value="+" onclick="mais('quantidade5')">
+                <input type="button" value="-" onclick="menos('quantidade5')">
+                <input type="submit" value="Adicionar">
+            </form>
+        </div>
+		
+		
+		
+    </div>
+
+    <script>
+        function mais(id) {
+            let input = document.getElementById(id);
+            let value = parseInt(input.value);
+            input.value = value + 1;
+        }
+
+        function menos(id) {
+            let input = document.getElementById(id);
+            let value = parseInt(input.value);
+            if (value > 0) {
+                input.value = value - 1;
+            }
+        }
+    </script>
+	
+	<footer>
+        <p>Localização: Rua da Concha, Fenda do Biquiní, Oceano Pacífico. </p>
+		</footer>
+	
+	</body>
+</html>
